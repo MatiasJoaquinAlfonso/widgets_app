@@ -56,8 +56,8 @@ class _CustomListTitle extends StatelessWidget {
         // );
 
         // Navigator.pushNamed(context, menuItem.link);
-        // context.push(menuItem.link);
-        context.pushNamed( CardsScren.name );
+         context.push(menuItem.link);
+        //context.pushNamed( CardsScren.name );
       },
     );
   }
