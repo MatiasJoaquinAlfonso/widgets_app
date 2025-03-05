@@ -26,7 +26,6 @@ class _ButtonsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final colors = Theme.of(context).colorScheme;
 
     return SizedBox(
@@ -37,47 +36,78 @@ class _ButtonsView extends StatelessWidget {
           spacing: 10,
           alignment: WrapAlignment.center,
           children: [
-            ElevatedButton(onPressed: (){}, child: Text('Elevated')),
-            const ElevatedButton(onPressed: null, child: Text('Elevated Disable')),
-      
+            ElevatedButton(onPressed: () {}, child: Text('Elevated')),
+            const ElevatedButton(
+              onPressed: null,
+              child: Text('Elevated Disable'),
+            ),
+
             ElevatedButton.icon(
-              onPressed: (){},
-              icon: Icon( Icons.access_alarm_rounded),
-               label: Text('Elevated Icon')),
+              onPressed: () {},
+              icon: Icon(Icons.access_alarm_rounded),
+              label: Text('Elevated Icon'),
+            ),
 
-            FilledButton(onPressed: (){}, child: const Text('Filled')),
+            FilledButton(onPressed: () {}, child: const Text('Filled')),
             FilledButton.icon(
-              onPressed: (){}, 
-              icon: const Icon( Icons.accessibility_new),
-              label: Text('Filled Icon')),
+              onPressed: () {},
+              icon: const Icon(Icons.accessibility_new),
+              label: Text('Filled Icon'),
+            ),
 
-              OutlinedButton(
-                onPressed: (){}, 
-                child: const Text('Outlined')),
+            OutlinedButton(onPressed: () {}, child: const Text('Outlined')),
 
-              OutlinedButton.icon(
-                onPressed: (){}, 
-                label: const Text('Outlined Icon'),
-                icon: const Icon( Icons.terminal)),
+            OutlinedButton.icon(
+              onPressed: () {},
+              label: const Text('Outlined Icon'),
+              icon: const Icon(Icons.terminal),
+            ),
 
-              TextButton(onPressed: (){}, child: const Text('Text')),
-              TextButton.icon(
-                onPressed: (){}, 
-                label: const Text('Text Icon'),
-                icon: const Icon( Icons.account_box_outlined),
-                ),
+            TextButton(onPressed: () {}, child: const Text('Text')),
+            TextButton.icon(
+              onPressed: () {},
+              label: const Text('Text Icon'),
+              icon: const Icon(Icons.account_box_outlined),
+            ),
 
-              //TODO: CUSTOM BUTTON
+            const CustonButton(),
 
-              IconButton(onPressed: (){}, icon:Icon(Icons.app_registration_rounded)),
-              IconButton(
-                onPressed:(){}, 
-                icon: const Icon( Icons.app_registration_rounded),
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(colors.primary),
-                  iconColor: WidgetStatePropertyAll(Colors.white)
-                ),)
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.app_registration_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.app_registration_rounded),
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(colors.primary),
+                iconColor: WidgetStatePropertyAll(Colors.white),
+              ),
+            ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustonButton extends StatelessWidget {
+  const CustonButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        child: InkWell(
+          onTap: (){},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text('Hola mundo', style: TextStyle(color: Colors.white)),
+          ),
         ),
       ),
     );
